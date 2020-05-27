@@ -17,7 +17,12 @@
 
 #define CONTROL_BYTE  0b01000000 // DAC control byte
 
+#define RELAY_PORT	GPIOA
+#define RELAY_PIN	GPIO_PIN_5
+
+
 // Prototypes
 void SendVoltageToDac(double Voltage);
+void ClockConfiguration(uint32_t Ts,uint32_t Mt);
 
 #endif /* INC_COMPONENTS_DAC_H_ */
