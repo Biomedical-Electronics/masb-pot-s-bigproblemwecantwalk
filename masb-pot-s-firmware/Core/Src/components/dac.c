@@ -27,16 +27,14 @@ void SendVoltageToDac(double Voltage){
 	HAL_I2C_Master_Transmit(&hi2c1, MCP4725_ADDR, DacBuffer, DAC_SIZE, HAL_MAX_DELAY);
 }
 
-void ClockConfiguration(uint32_t Ts,uint32_t Counts){
+void ClockConfiguration(uint32_t Ts){
 
-	uint32_t ticks_period = (84e6 * (Ts/1000));
+	uint32_t ticks_period = (84e6 * (Ts/1000)); // calcul de tics per cada periode
 
-	tim3.Instance = TIM3;
+	tim3.Instance = TIM3;  // definim el timer i les caracteristiques
 	tim3.Init.Period = ticks_period;
 	tim3.Init.Prescaler = prescaler;
 	tim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	tim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-
-
 
 }

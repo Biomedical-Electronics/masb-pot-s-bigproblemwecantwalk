@@ -12,9 +12,9 @@
 #include "components/dac.h"
 
 extern TIM_HandleTypeDef htim3;
-extern char estado;
+extern char *estado; // la fem extern perque s'accedirà des de l'interrupt
 
-char ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
+void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 
 
 	double eDC = caConfiguration.eDC;
@@ -25,21 +25,26 @@ char ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 	uint32_t Ts = caConfiguration.samplingPeriodMs;
 	uint32_t Mt = caConfiguration.measurementTime;
 
-	uint8_t TotalMeasurements = round(Mt/(Ts/1000));
+	uint8_t TotalMeasurements = round(Mt/(Ts/1000)); // Calculem el nombre necessari de measurements
 
-	ClockConfiguration(Ts,Mt); // Configuració del timer
+	ClockConfiguration(Ts); // Configuració del timer
+
+
+	estado= "CA";
+	int count = 1;
 	HAL_TIM_Base_Start_IT(&htim3); // Inicialitzem el timer
 
-	int count = 1;
-	while (count<=TotalMeasurements){
-		if (count == TotalMeasurements){
-			&estado = "IDLE";
-		}
-		&estado= "CA";
+	while (count<=TotalMeasurements){ // While loop que dura tot el measurement.
 
-		return estado;
+		if (count == TotalMeasurements){
+			estado = "IDLE";
+		}
+
+		estado= "CA";
+
 	}
 
-	HAL_TIM_Base_Stop_IT(&htim3);
+	// Per tancar el clock hauria destar al propi  interrupt: HAL_TIM_Base_Stop_IT(&htim3);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, 0); // Obrim el relé
 
 }

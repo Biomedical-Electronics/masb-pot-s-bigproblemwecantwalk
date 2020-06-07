@@ -21,8 +21,9 @@
 #define RELAY_PIN	GPIO_PIN_5
 
 
+
 // Prototypes
 void SendVoltageToDac(double Voltage);
-void ClockConfiguration(uint32_t Ts,uint32_t Mt);
+void ClockConfiguration(uint32_t Ts);
 
 #endif /* INC_COMPONENTS_DAC_H_ */
