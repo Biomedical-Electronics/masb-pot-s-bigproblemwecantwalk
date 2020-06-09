@@ -30,11 +30,12 @@ void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration){
 
 	ClockConfiguration(samplingPeriod); // the timer is configured with the samplingPeriod
 
-	uint8_t count = 1; // the count variable used in conditionals and other functions, we make it to be 1.
 	estado = "CV"; // the status of the measure is CV, with all that corresponds to it.
 	int sign = 1; // variable that helps us change the sign of eStep for proper application
+	uint8_t cycles_i = 1; //counter of cycles of the
 
-	while (count <= cycles){ // while the count has not gotten to the final cycle which is cycles
+	while (cycles_i <= cycles){ // while the count has not gotten to the final cycle which is cycles
+
 		estado = "CV"; // the status of the measures is CV
 
 		if (vcell == vObjetivo){ //if the real vcell (read with the ADC) is equal to vObjetivo
@@ -52,7 +53,7 @@ void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration){
 					sign = 1; // and the sign for the eStep variable is changed
 				}
 
-				else if (count == cycles){ // if the count equals the total number of cycles
+				else if (cycles_i == cycles){ // if the count equals the total number of cycles
 
 					estado = "IDLE"; // the status is change to IDLE so it stops the measure
 				}
@@ -61,6 +62,7 @@ void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration){
 
 					vObjetivo = cvConfiguration.eVertex1; // we change the vObjetivo value to eVertex1
 					sign = 1; // and the sign for the eStep variable is changed
+					cycles_i ++;
 				}
 
 
