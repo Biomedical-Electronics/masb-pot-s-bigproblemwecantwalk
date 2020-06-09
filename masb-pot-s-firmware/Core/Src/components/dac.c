@@ -37,4 +37,6 @@ void ClockConfiguration(uint32_t Ts){
 	tim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	tim3.Init.CounterMode = TIM_COUNTERMODE_UP;
 
+	HAL_TIM_Base_Start_IT(&htim3); // Inicialitzem el timer
+
 }
