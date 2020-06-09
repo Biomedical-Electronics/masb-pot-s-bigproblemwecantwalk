@@ -12,6 +12,7 @@
 #include "components/chronoamperometry.h"
 #include "components/cyclic_voltammetry.h"
 #include "components/adc.h"
+#include "string.h"
 
 // Prototypes
 void interrupt_management(void);
