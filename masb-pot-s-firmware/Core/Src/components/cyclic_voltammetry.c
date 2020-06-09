@@ -10,7 +10,9 @@
 #include "components/cyclic_voltammetry.h"
 #include "components/masb_comm_s.h"
 
-uint8_t count;
+extern uint8_t count;
+extern char *estado; // la fem extern perque s'accedirà des de l'interrupt
+extern double vcell;
 
 
 void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration){
@@ -29,7 +31,7 @@ void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration){
 	ClockConfiguration(samplingPeriod); // the timer is configured with the samplingPeriod
 
 	uint8_t count = 1; // the count variable used in conditionals and other functions, we make it to be 1.
-	char estado = "CV"; // the status of the measure is CV, with all that corresponds to it.
+	estado = "CV"; // the status of the measure is CV, with all that corresponds to it.
 	int sign = 1; // variable that helps us change the sign of eStep for proper application
 
 	while (count <= cycles){ // while the count has not gotten to the final cycle which is cycles

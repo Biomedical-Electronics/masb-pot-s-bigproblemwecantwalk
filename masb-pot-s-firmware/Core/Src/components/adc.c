@@ -10,6 +10,7 @@
 
 uint32_t Vadc = 0;
 ADC_HandleTypeDef hadc1;
+extern double vcell=0;
 
 // what we want out of this function, with inputs count and sampling period, is to have an structure Data_S pointdata
 // whose variables are characteristic for each point in chronoamperometry and cyclic voltammetry.
