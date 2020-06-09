@@ -57,16 +57,16 @@ void loop(void) {
 
 void interrupt_management(void){
 
-	if (estado == "Cv"){
+	if (strcmp(estado, "Cv") == 0){ // usamos string compare para comparar dos strings, si da 0 es que son iguales
 		struct Data_S data = ADC_function(count, samplingPeriod); // obtenemos medicion
 		MASB_COMM_S_sendData(data); // mandamos medicion al host
 	}
-	else if (estado == "Ca"){
+	else if (strcmp(estado, "Ca") == 0){
 		struct Data_S data = ADC_function(count, Ts); // obtenemos medicion
 		MASB_COMM_S_sendData(data); // mandamos medicion al host
 	}
-	else if (estado == "IDLE"){
-		HAL_TIM_Base_Stop_IT(&htim3);
+	else if (strcmp(estado, "IDLE") == 0){
+		HAL_TIM_Base_Stop_IT(&htim3); // apagamos el timer
 	}
 
 	count++;
