@@ -25,14 +25,13 @@ In this document there are the necessary contents to carry out and understand th
 This project has been developed in the subject of Microcontrollers for Biomedical Applications and Systems, in the 4th year of Biomedical Engineering at the University of Barcelona. This work has been carried out by the "BigProblemWeCantWalk" team formed by Carlos Maimó and Carles Bada.
 
 <p align="center">
-
-
-<img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/maimo.jpg" alt="Git" width="250" /><img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/carles.jpg" alt="Git" width="300" />
-
-**Figure 1:** Carlos Maimó y Carles Bada
-
+  
+  <img src="Assets/Img/maimo.jpg" alt="Git" width="250" />
+  <img src="Assets/Img/carles.jpg" alt="Git" width="300" />
+  
 </p>
 
+> **Figure 1:** Carlos Maimó y Carles Bada
 
 
 In this section of the introduction there is a brief description of the techniques used to develop the project. It is necessary to understand how the electrochemical techniques that can be done with a potentiostat work in order to develop automated control systems for them. 
@@ -46,10 +45,11 @@ A potentiostat is a type of circuit used to make electrochemical measurements. I
 <p align="center">
 <img src="Assets/Img/potentiostat.PNG" alt="Git" width="400" />
 
-
-**Figure 2**: Basic schematic of a potentiostat [2].
-
 </p>
+
+> **Figure 2**: Basic schematic of a potentiostat [2].
+
+
 
 These types of devices are widely used for the development of medical sensors and points-of-care since the have the ability of detecting very small changes in concentration, i.e, they have a very high sensitivity and this makes them ideal to carry out measurements of the biologic concentrations in the organism. The two main measurements that we can do with the potentiostat are the chronoamperometry (CA) and the cyclic voltammetry (CV), which we will now see what they are about, on what they are based and how they should be done.
 
@@ -62,23 +62,25 @@ The chronoamperometry is a time-dependent measurement technique in which a certa
 <p align="center">
 
 
-<img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/crono.PNG" alt="Git" width="300" />
-
-**Figure 3**: Representation of a chronoamperometry [4].
-
+<img src="Assets/Img/crono.PNG" alt="Git" width="300" />
 </p>
+
+> **Figure 3**: Representation of a chronoamperometry [4].
+
+
 
 #### Cyclic voltammetry
 
 The cyclic voltametry, on the other hand, is an electrochemical technique widely used that can be useful for obtaining qualitative and quantitative information on electrochemical reactions, such as kinematics, reaction mechanisms, electrocatalytic processes, the reversibility of reaction and more parameters. During the measurement, the potential of the WE is measured with respect to the RE, and the potential is forces between two limits using a signal like the one shown in figure 3. At the same time, the current passing through the cell is also measured, which depends on the applied potential [5]. The signal corresponding to a redox has a shape similar to the one in figure 3, where the top peak marks the oxidation of the solution, and the lower peak indicates its reduction. This technique can also be used to do redox studies on the surface of the WE.
 
 
-
-<img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/ciclic.PNG" alt="Git" width="600" />
-
-**Figure 4**: Esquema de una cronoamperometría [5].
-
+<p align="center">
+<img src="Assets/Img/ciclic.PNG" alt="Git" width="600" />
 </p>
+
+> **Figure 4**: Esquema de una cronoamperometría [5].
+
+
 
 #### Hardware
 
@@ -90,12 +92,12 @@ There are many types of microcontrollers that can be used to automate processes,
 
 <p align="center">
 
-
-<img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/placa.PNG" alt="Git" width="300" />
-
-**Figure 5**: Image of the used microcontroller [6].
+<img src="Assets/Img/placa.PNG" alt="Git" width="300" />
 
 </p>
+
+> **Figure 5**: Image of the used microcontroller [6].
+
 
 #### Git y GitHub
 
@@ -116,10 +118,12 @@ The developed program must have the following structue and be able to carry out 
 
 <p align="center">
 <img src="Assets/Img/micro-flow.PNG" alt="Git" width="700" />
-
-**Figure 6**: Flow diagram that the microcontroller must follow.
-
+  
 </p>
+
+> **Figure 6**: Flow diagram that the microcontroller must follow.
+
+
 
 
 
@@ -131,13 +135,12 @@ In order to develop this project, our team form by Carlos Maimó and Carles Bada
 
 <p align="center">
 
-
-<img src="C:/Users/cmaim/Desktop/MASB-workspace/mab-pot-s-bigproblemwecantwalk/Assets/Img/diagrama.PNG" alt="Git" width="700" />
-
-**Figure 7**: Flow diagram of the program.
+<img src="Assets/Img/diagrama.png" alt="Git" width="600" />
 
 </p>
 
+
+> **Figure 7**: Flow diagram of the program.
 
 
 The workflow that has been followed to develop the different files is the one in the documentation, where the functionalities are developed individually in the different feature/****** branches, and are grouped into the develop branch so that we can check whether we have bugs or not. To correct such mistakes the hotfix/******* branches are used. Once all errors are corrected the project is passed to the master branch, from where the client will see it. By specifying more in this process we will explain how we have applied this workflow to our project.
@@ -155,7 +158,7 @@ In these branches feature/CAconf and feature/CVconf, in order to later assemble 
 
   
 
-- **Clock_configuration(): **This function is used to automatically configure the timer with the period required by the user. It is done by converting the period in milliseconds to tics of the clock. Subsequently, it initializes the timer with the determined period with the interrups activated.
+- **Clock_configuration():** This function is used to automatically configure the timer with the period required by the user. It is done by converting the period in milliseconds to tics of the clock. Subsequently, it initializes the timer with the determined period with the interrups activated.
 
 - **Cyclic_voltammetryManagement():** This function is in charge of managing the configuration and development of the cyclic voltammetry. First, it extracts the values contained within the data package that configure this measurement. Subsequently, it sets the DAC value with the value defined by the user and activates the relay that closes the electrochemical sensor circuit. Then it configures the timer with the required period and start the analysis. By controlling the reading of the cell voltage, it determines different voltage targets that the cell must reach in each cycle. This is done by increasing or decreasing the voltage set in the cell. When it is in the last cycle it changes the state to IDLE and opens the relay.
 
