@@ -21,7 +21,7 @@ void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 	double eDC = caConfiguration.eDC;
 	SendVoltageToDac(eDC); //Fixem el voltatge a la cell
 
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, 1); // Tanquem el relé
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 1); // Tanquem el relé
 
 	uint32_t Ts = caConfiguration.samplingPeriodMs;
 	uint32_t Mt = caConfiguration.measurementTime;
