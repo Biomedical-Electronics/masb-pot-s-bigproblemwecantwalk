@@ -12,7 +12,7 @@ extern I2C_HandleTypeDef hi2c1;
 const uint8_t MCP4725_ADDR = MCP4725 << 1; // 8-bit DAC address
 uint8_t DacBuffer[DAC_SIZE] = {0}; // buffer to save the transmitted values
 uint32_t prescaler = 8.399; // Prescalado del reloj para reducir la frequancia a 10MHz
-TIM_HandleTypeDef tim3;
+extern TIM_HandleTypeDef htim3;
 char estado[];
 
 
@@ -31,11 +31,11 @@ void ClockConfiguration(uint32_t Ts){
 
 	uint32_t ticks_period = (84e6 * (Ts/1000)); // calcul de tics per cada periode
 
-	tim3.Instance = TIM3;  // definim el timer i les caracteristiques
-	tim3.Init.Period = ticks_period;
-	tim3.Init.Prescaler = prescaler;
-	tim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	tim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim3.Instance = TIM3;  // definim el timer i les caracteristiques
+	htim3.Init.Period = ticks_period;
+	htim3.Init.Prescaler = prescaler;
+	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
 
 	HAL_TIM_Base_Start_IT(&htim3); // Inicialitzem el timer
 
