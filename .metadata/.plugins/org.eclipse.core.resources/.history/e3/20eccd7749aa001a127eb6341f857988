@@ -12,7 +12,6 @@
 #define INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_
 
 #include "stm32f4xx_hal.h"
-#include "math.h"
 
 struct CV_Configuration_S {
 
