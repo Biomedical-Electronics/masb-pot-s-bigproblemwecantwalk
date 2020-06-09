@@ -13,6 +13,8 @@
 
 #include "stm32f4xx_hal.h"
 #include "math.h"
+#include "components/dac.h"
+#include "components/adc.h"
 
 struct CV_Configuration_S {
 
@@ -24,5 +26,7 @@ struct CV_Configuration_S {
 	double eStep;
 
 };
+
+void Cyclic_voltammetryManagement(struct CV_Configuration_S cvConfiguration);
 
 #endif /* INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_ */
