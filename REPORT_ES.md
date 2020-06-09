@@ -24,6 +24,14 @@ En este documento se encuentran los contenidos necesarios para realizar y entend
 
 Este proyecto ha sido desarrollado en la asignatura optativa de Microcontroladores  para Aplicaciones y Sistemas Biomédicos de cuarto de Ingeniera Biomédica de la Universidad de Barcelona. Este trabajo ha sido realizado por el grupo BigProblemWeCantWalk formado por Carlos Maimó y Carles Bada. 
 
+<p align="center">
+
+<img src="Assets/Img/maimo.jpg" alt="Git" width="250" /><img src="Assets/Img/carles.jpg" alt="Git" width="300" />
+
+**Figure 1:** Carlos Maimó y Carles Bada
+
+</p>
+
 En este apartado de la introducción hay una breve descripción de las técnicas usadas para desarrollar este proyecto. Es necesario comprender como funcionan las técnicas electroquímicas que se pueden hacer con un potenciostato, para poder desarrollar sistemas de control automatizado para ellas. 
 
 #### Potenciostato
@@ -31,10 +39,9 @@ En este apartado de la introducción hay una breve descripción de las técnicas
 Un potenciostato es un tipo de circuito utilizado para hacer mediciones electroquímicas. Se trata de un dispositivo muy usado en el mundo de la medicina en el diseño y desarrollo de biosensores, como los detectores de glucosa, por ejemplo. Está formado por tres electrodos: el counter electrode (CE), el working electrode (WE) y el reference electrode (RE). También consta de un amplificador de gran amplificación y gran impedancia para fijar el voltaje de trabajo, y de un amplificador de transimpedancia a la salida para medir las variaciones en la intensidad del corriente dentro de la celda electroquímica [1]. En la figura 1 podemos ver un ejemplo del circuito del potenciostato. 
 
 <p align="center">
-
 <img src="Assets/Img/potentiostat.PNG" alt="Git" width="400" />
 
-**Figure 1**: Basic schematic of a potentiostat [2].
+**Figure 2**: Basic schematic of a potentiostat [2].
 
 </p>
 
@@ -48,7 +55,7 @@ La cronoamperometría es una técnica de medición dependiente de tiempo en la q
 
 <img src="Assets/Img/crono.PNG" alt="Git" width="300" />
 
-**Figure 2**: Esquema de una cronoamperometría [4].
+**Figure 3**: Esquema de una cronoamperometría [4].
 
 </p>
 
@@ -60,7 +67,7 @@ La voltametría cíclica, por otra parte, es una técnica electroquímica muy ut
 
 <img src="Assets/Img/ciclic.PNG" alt="Git" width="600" />
 
-**Figure 3**: Esquema de una cronoamperometría [5].
+**Figure 4**: Esquema de una cronoamperometría [5].
 
 </p>
 
@@ -74,7 +81,7 @@ Hay muchos tipos de microcontroladores que se pueden usar para automatizar proce
 
 <img src="Assets/Img/placa.PNG" alt="Git" width="300" />
 
-**Figure 4**: Imagen del microcontrolador empleado [6].
+**Figure 5**: Imagen del microcontrolador empleado [6].
 
 </p>
 
@@ -94,10 +101,9 @@ El programa desarrollado debe tener la siguiente estructura y ser capaz de reali
 
 
 <p align="center">
-
 <img src="Assets/Img/micro-flow.PNG" alt="Git" width="700" />
 
-**Figure 5**: Diagrama de flujos que debe seguir el microcontrolador.
+**Figure 6**: Diagrama de flujos que debe seguir el microcontrolador.
 
 </p>
 
@@ -106,6 +112,14 @@ El programa desarrollado debe tener la siguiente estructura y ser capaz de reali
 ## Desarrollo del proyecto
 
 Para desarrollar este proyecto, nuestro equipo formado por Carlos Maimó y Carles Bada, ha trabajado en equipo para realizar la configuración necesaria de todo el programa. La descripción del proceso que se ha realizado a lo largo del proyecto se encuentra en el siguiente diagrama de flujo.
+
+<p align="center">
+
+<img src="Assets/Img/diagrama.PNG" alt="Git" width="700" />
+
+**Figure 7**: Diagrama de flujos del programa.
+
+</p>
 
 
 
