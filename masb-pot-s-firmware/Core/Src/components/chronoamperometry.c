@@ -11,7 +11,6 @@
 #include "components/masb_comm_s.h"
 #include "components/dac.h"
 
-extern TIM_HandleTypeDef htim3;
 extern char *estado; // la fem extern perque s'accedirà des de l'interrupt
 
 void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
@@ -29,10 +28,8 @@ void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 
 	ClockConfiguration(Ts); // Configuració del timer
 
-
 	estado= "CA";
 	int count = 1;
-	HAL_TIM_Base_Start_IT(&htim3); // Inicialitzem el timer
 
 	while (count<=TotalMeasurements){ // While loop que dura tot el measurement.
 
