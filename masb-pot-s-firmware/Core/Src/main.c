@@ -51,6 +51,11 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
+char estado; // la fem extern perque s'accedirà des de l'interrupt
+uint8_t count = 1;
+double samplingPeriod = 0;
+uint32_t Ts = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -103,6 +108,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   setup();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

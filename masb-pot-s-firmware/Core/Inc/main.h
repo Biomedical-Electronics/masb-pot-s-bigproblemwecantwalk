@@ -29,11 +29,11 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-#include "components/loop.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "components/loop.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

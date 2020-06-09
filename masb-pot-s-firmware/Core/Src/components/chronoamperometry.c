@@ -12,6 +12,8 @@
 #include "components/dac.h"
 
 extern char *estado; // la fem extern perque s'accedirà des de l'interrupt
+extern uint8_t count;
+
 
 void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 
@@ -29,7 +31,7 @@ void ChronoamperometryManagement(struct CA_Configuration_S caConfiguration){
 	ClockConfiguration(Ts); // Configuració del timer
 
 	estado= "CA";
-	int count = 1;
+	count = 1;
 
 	while (count<=TotalMeasurements){ // While loop que dura tot el measurement.
 
