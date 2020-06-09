@@ -18,7 +18,7 @@ struct Data_S ADC_function(uint8_t count, double samplingPeriod){
 
 		HAL_ADC_Start(&hadc1); // the conversion starts
 
-		HAL_ADC_PollForConversion(&hadc1, 200); // we wait 200 ms to make sure the conversion is done
+		HAL_ADC_PollForConversion(&hadc1, 1); // we wait 1 ms to make sure the conversion is done
 		Vadc = (HAL_ADC_GetValue(&hadc1)*4/4096); // we store the value resulting from the conversion and multiplied by factor (4/4096)
 												  // (since the resolution of the ADC is 12 bits) in the variable Vadc.
 
