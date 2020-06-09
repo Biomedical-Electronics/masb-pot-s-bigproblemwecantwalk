@@ -23,7 +23,7 @@ void SendVoltageToDac(double Voltage){
 	DacBuffer[2] = DAC_voltage << 4; // LSB 3-0 shift left 4 places
 
 		  // Transmits data
-	HAL_I2C_Master_Transmit(&hi2c1, MCP4725_ADDR, DacBuffer, DAC_SIZE, HAL_MAX_DELAY);
+	//HAL_I2C_Master_Transmit(&hi2c1, MCP4725_ADDR, DacBuffer, DAC_SIZE, HAL_MAX_DELAY);
 }
 
 void ClockConfiguration(uint32_t Ts){
